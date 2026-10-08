@@ -1,0 +1,28 @@
+info:
+  name: update
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{apiPath}}/authors/{{id}}"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "bb",
+        "birthday": null
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: id
+      value: "1"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
