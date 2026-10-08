@@ -1,10 +1,12 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { logger } from "hono/logger";
 
 import authorRoutes from "./routes/author.ts";
 
 const app = new Hono();
 
+app.use(logger());
 app.route("/authors", authorRoutes);
 
 serve(
